@@ -16,7 +16,6 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     height: normalize(48),
     borderWidth: 1,
     borderColor: Colors.gray,
