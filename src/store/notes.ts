@@ -1,4 +1,5 @@
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable, set, toJS } from 'mobx';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface Note {
   title: string;
@@ -13,6 +14,9 @@ class NoteStore {
   constructor() {
     // Make store class properties MobX observables.
     makeAutoObservable(this);
+
+    // Fetch notes from async storage
+    persistNotes(this);
   }
 
   // Create note and generate unique ID by incrementing length.
@@ -39,5 +43,33 @@ class NoteStore {
     this.notes[index] = payload;
   };
 }
+
+const persistNotes = async (_this: any) => {
+  try {
+    // Fetch previously persisted notes
+    const storedNotes = await AsyncStorage.getItem('noter-notes');
+    if (storedNotes) {
+      // Refresh store
+      set(_this, storedNotes);
+    }
+  } catch (error) {
+    // Handle error - could be error reporting service.
+    console.warn(error);
+  }
+
+  // MobX utility function run everytime notes change.
+  autorun(async () => {
+    // Convert MobX observables to regular JS object.
+    const notes = toJS(_this);
+
+    try {
+      // Send notes to local storage
+      await AsyncStorage.setItem('noter-notes', JSON.stringify(notes));
+    } catch (error) {
+      // Handle error - could be error reporting service.
+      console.warn(error);
+    }
+  });
+};
 
 export default new NoteStore();
