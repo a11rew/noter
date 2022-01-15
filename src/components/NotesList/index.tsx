@@ -1,22 +1,24 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
+import { observer } from 'mobx-react-lite';
 import normalize from 'utils/normalize';
+import NotesStore, { Note } from 'store/NoteStore';
 import NotesListCard from './NotesListCard';
 
-const NotesList = () => {
+const NotesList = (): JSX.Element => {
   return (
     <FlatList
       contentContainerStyle={styles.container}
       columnWrapperStyle={{ justifyContent: 'space-between' }}
       numColumns={2}
-      data={notesData}
+      data={NotesStore.notes}
       renderItem={_renderItem}
-      keyExtractor={e => e.key}
+      keyExtractor={e => e.id}
     />
   );
 };
 
-export default NotesList;
+export default observer(NotesList);
 
 const styles = StyleSheet.create({
   container: {
@@ -24,58 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-/**
- * Flatlist render function.
- */
-const _renderItem = ({ item }) => (
-  <NotesListCard title={item.title} description={item.description} />
+// Flatlist render function.
+const _renderItem = ({ item }: { item: Note }) => (
+  <NotesListCard title={item.title} description={item.content} />
 );
-
-const notesData = [
-  {
-    key: '1',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '2',
-    title: 'Notes',
-    description:
-      'DescriptionvDescriptionDescriptionDescription DescriptionvDescriptionDescriptionDescription for my note nice nice',
-  },
-  {
-    key: '3',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '4',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '5',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '6',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '7',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '8',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-  {
-    key: '9',
-    title: 'Notes',
-    description: 'Description for my note nice nice',
-  },
-];

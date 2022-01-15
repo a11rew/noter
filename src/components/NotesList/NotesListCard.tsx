@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, View } from 'common/Themed';
 import Colors from 'common/Colors';
 import normalize from 'utils/normalize';
@@ -11,10 +11,10 @@ interface Props {
 
 const NotesListCard: React.FC<Props> = ({ description, title }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'DMSans-Bold',
     fontSize: normalize(18),
+    marginBottom: normalize(6),
   },
   description: {},
 });
