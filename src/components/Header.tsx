@@ -1,21 +1,24 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View } from 'common/Themed';
+import normalize from 'utils/normalize';
 
-const Home = (): JSX.Element => {
+const Header = () => {
   return (
     <View style={styles.container}>
-      <Text>Yo</Text>
-      <Text>Come on g</Text>
+      <Text style={styles.heading}>Noter</Text>
     </View>
   );
 };
 
+export default Header;
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: '3%',
   },
+  heading: {
+    fontFamily: 'DMSans-Bold',
+    fontSize: normalize(24),
+  },
 });
-
-export default Home;
