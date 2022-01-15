@@ -9,4 +9,5 @@ export default {
   },
   primary: '#0C6D3D',
   error: '#C63636',
+  gray: '#DDD',
 };

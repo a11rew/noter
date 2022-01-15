@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Text, View } from 'common/Themed';
+import { View } from 'common/Themed';
+import SearchBar from 'components/SearchBar';
+import NotesList from 'components/NotesList';
 
 const Home = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text>Yo</Text>
-      <Text>Come on g</Text>
+      <SearchBar />
+      <NotesList />
     </View>
   );
 };
@@ -14,7 +16,7 @@ const Home = (): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: '3%',
+    paddingHorizontal: '3%',
   },
 });
 
