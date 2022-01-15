@@ -17,7 +17,14 @@ export const Text = (props: TextProps): JSX.Element => {
 
   return (
     <DefaultText
-      style={[{ color, fontSize: normalize(16) }, style]}
+      style={[
+        {
+          color,
+          fontSize: normalize(16),
+          fontFamily: 'DMSans-Regular',
+        },
+        style,
+      ]}
       {...otherProps}
     />
   );
