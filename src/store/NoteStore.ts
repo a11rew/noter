@@ -1,4 +1,4 @@
-import { autorun, makeAutoObservable, set, toJS } from 'mobx';
+import { action, autorun, makeAutoObservable, set, toJS } from 'mobx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface Note {
@@ -60,7 +60,7 @@ const notesData = [
 
 class NoteStore {
   // Initialize array of notes.
-  public notes: Note[] = [...notesData];
+  public notes: Note[] = [];
 
   constructor() {
     // Make store class properties MobX observables.
@@ -93,33 +93,34 @@ class NoteStore {
     // Update note at said position
     this.notes[index] = payload;
   };
+
+  // Find one note
+  findNote = (id: string) => {
+    return this.notes.find(note => note.id === id);
+  };
 }
 
-const persistNotes = async (_this: any) => {
-  try {
-    // Fetch previously persisted notes
-    const storedNotes = await AsyncStorage.getItem('noter-notes');
-    if (storedNotes) {
+const persistNotes = (_this: any) => {
+  // Fetch previously persisted notes
+  AsyncStorage.getItem('noter-notes', (err, res) => {
+    if (err) {
+      console.warn(err);
+    } else {
       // Refresh store
-      set(_this, storedNotes);
+      action(() => set(_this, JSON.parse(res!)))();
     }
-  } catch (error) {
-    // Handle error - could be error reporting service.
-    console.warn(error);
-  }
+  });
 
   // MobX utility function ran everytime notes change.
-  autorun(async () => {
+  autorun(() => {
     // Convert MobX observables to regular JS object.
     const notes = toJS(_this);
 
-    try {
-      // Send notes to local storage
-      await AsyncStorage.setItem('noter-notes', JSON.stringify(notes));
-    } catch (error) {
+    // Send notes to local storage
+    AsyncStorage.setItem('noter-notes', JSON.stringify(notes), err => {
       // Handle error - could be error reporting service.
-      console.warn(error);
-    }
+      if (err) console.warn(err);
+    });
   });
 };
 
