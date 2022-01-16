@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
 
 // List render function.
 const _renderItem = ({ item }: { item: Note }) => (
-  <NotesListCard key={item.id} title={item.title} description={item.content} />
+  <NotesListCard key={item.id} note={item} />
 );
