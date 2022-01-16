@@ -11,24 +11,27 @@ interface Props {
 
 const NotesListCard: React.FC<Props> = ({ description, title }) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>{description}</Text>
-    </TouchableOpacity>
+    <View style={styles.wrapper}>
+      <TouchableOpacity style={styles.container}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.description}>{description}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 export default NotesListCard;
 
 const styles = StyleSheet.create({
+  wrapper: {
+    margin: normalize(4),
+  },
   container: {
     flexGrow: 0,
     borderWidth: 1,
     borderColor: Colors.gray,
-    width: '49%',
     borderRadius: normalize(12),
     padding: normalize(8),
-    marginBottom: normalize(8),
   },
   title: {
     fontFamily: 'DMSans-Bold',

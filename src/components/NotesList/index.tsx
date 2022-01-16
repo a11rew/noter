@@ -1,5 +1,6 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import List from '@react-native-seoul/masonry-list';
 import { observer } from 'mobx-react-lite';
 import normalize from 'utils/normalize';
 import NotesStore, { Note } from 'store/NoteStore';
@@ -7,13 +8,12 @@ import NotesListCard from './NotesListCard';
 
 const NotesList = (): JSX.Element => {
   return (
-    <FlatList
-      contentContainerStyle={styles.container}
-      columnWrapperStyle={{ justifyContent: 'space-between' }}
+    <List
+      style={styles.container}
       numColumns={2}
-      data={NotesStore.notes}
+      // Sliced to deal with Flatlist "out of bounds read" error
+      data={NotesStore.notes.slice()}
       renderItem={_renderItem}
-      keyExtractor={e => e.id}
     />
   );
 };
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// Flatlist render function.
+// List render function.
 const _renderItem = ({ item }: { item: Note }) => (
-  <NotesListCard title={item.title} description={item.content} />
+  <NotesListCard key={item.id} title={item.title} description={item.content} />
 );

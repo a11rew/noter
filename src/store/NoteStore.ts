@@ -27,7 +27,8 @@ const notesData = [
   {
     id: '4',
     title: 'Notes',
-    content: 'Description for my note nice nice',
+    content:
+      'DescriptionvDescriptionDescriptionDescription DescriptionvDescriptionDescriptionDescription for my note nice nice',
   },
   {
     id: '5',
@@ -42,7 +43,8 @@ const notesData = [
   {
     id: '7',
     title: 'Notes',
-    content: 'Description for my note nice nice',
+    content:
+      'DescriptionvDescriptionDescriptionDescription DescriptionvDescriptionDescriptionDescription for my note nice nice',
   },
   {
     id: '8',
