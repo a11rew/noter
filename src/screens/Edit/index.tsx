@@ -6,10 +6,13 @@ import {
   TextInput,
 } from 'react-native';
 import { useDebouncedCallback } from 'use-debounce';
+
+import { View } from 'common/Themed';
 import normalize from 'utils/normalize';
 import NoteStore from 'store/NoteStore';
 
 import { NavigationStackScreenProps } from '../../navigation/types';
+import DeleteActionButton from 'components/FloatingActionButton/DeleteActionButton';
 
 interface Props extends NavigationStackScreenProps<'Edit'> {}
 
@@ -35,30 +38,37 @@ const Edit: React.FC<Props> = ({ route }) => {
   );
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
-      <ScrollView>
-        <TextInput
-          placeholder="Title"
-          style={styles.title}
-          value={noteTitle}
-          onChangeText={e => setNoteTitle(e)}
-        />
-        <TextInput
-          placeholder="Note"
-          multiline
-          scrollEnabled={false}
-          style={styles.note}
-          value={noteContent}
-          onChangeText={e => setNoteContent(e)}
-        />
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <View style={styles.wrapper}>
+      <KeyboardAvoidingView style={styles.container}>
+        <ScrollView>
+          <TextInput
+            placeholder="Title"
+            style={styles.title}
+            value={noteTitle}
+            onChangeText={e => setNoteTitle(e)}
+          />
+          <TextInput
+            placeholder="Note"
+            multiline
+            scrollEnabled={false}
+            style={styles.note}
+            value={noteContent}
+            onChangeText={e => setNoteContent(e)}
+          />
+        </ScrollView>
+      </KeyboardAvoidingView>
+      <DeleteActionButton id={note!.id} />
+    </View>
   );
 };
 
 export default Edit;
 
 const styles = StyleSheet.create({
+  wrapper: {
+    position: 'relative',
+    flex: 1,
+  },
   container: {
     flex: 1,
     paddingHorizontal: '2%',
