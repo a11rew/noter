@@ -1,37 +1,40 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
 import {
   KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
+  BackHandler,
   TextInput,
 } from 'react-native';
-import { useDebouncedCallback } from 'use-debounce';
-import normalize from 'utils/normalize';
 import NoteStore from 'store/NoteStore';
+import normalize from 'utils/normalize';
 
-import { NavigationStackScreenProps } from '../../navigation/types';
+const New: React.FC = () => {
+  const [noteContent, setNoteContent] = useState('');
+  const [noteTitle, setNoteTitle] = useState('');
 
-interface Props extends NavigationStackScreenProps<'Edit'> {}
-
-const Edit: React.FC<Props> = ({ route }) => {
-  const id = route.params.id;
-  const note = useMemo(() => NoteStore.findNote(id), [id]);
-  const [noteContent, setNoteContent] = useState(note?.content || '');
-  const [noteTitle, setNoteTitle] = useState(note?.title || '');
-
-  // Persist content and title on change
-  useEffect(
-    // Batch writes to store and subsequently persistence
-    // Improves performance by not setting off writes on every keypress
-    useDebouncedCallback(() => {
-      // Write note to store
-      NoteStore.updateNote(note!.id, {
+  const handleLeave = () => {
+    if (noteContent || noteTitle) {
+      NoteStore.addNote({
         content: noteContent,
         title: noteTitle,
-        id,
       });
-    }, 500),
-    [noteContent, noteTitle],
+    }
+    return false;
+  };
+
+  // Use navigation lifecycle to handle registration
+  useFocusEffect(
+    useCallback(() => {
+      // Register back button handler
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        handleLeave,
+      );
+
+      return () => backHandler.remove();
+    }, [noteContent, noteTitle]),
   );
 
   return (
@@ -56,7 +59,7 @@ const Edit: React.FC<Props> = ({ route }) => {
   );
 };
 
-export default Edit;
+export default New;
 
 const styles = StyleSheet.create({
   container: {

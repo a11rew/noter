@@ -1,3 +1,7 @@
+/**
+ * React Navigation utility types
+ */
+
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 declare global {
@@ -11,6 +15,7 @@ export type NavigationStackParamList = {
   Edit: {
     id: string;
   };
+  New: undefined;
 };
 
 export type NavigationStackScreenProps<
