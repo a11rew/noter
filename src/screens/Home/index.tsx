@@ -3,14 +3,14 @@ import { StyleSheet } from 'react-native';
 import { View } from 'common/Themed';
 import SearchBar from 'components/SearchBar';
 import NotesList from 'components/NotesList';
-import NewNoteActionButton from 'components/NewNoteActionButton';
+import FloatingActionButton from 'components/FloatingActionButton';
 
 const Home = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <SearchBar />
       <NotesList />
-      <NewNoteActionButton />
+      <FloatingActionButton />
     </View>
   );
 };

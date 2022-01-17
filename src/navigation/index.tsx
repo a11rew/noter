@@ -8,6 +8,7 @@ import Edit from 'screens/Edit';
 import New from 'screens/New';
 import NewNoteHeader from 'screens/New/NewNoteHeader';
 import { NavigationStackParamList } from './types';
+import EditHeader from 'screens/Edit/EditHeader';
 
 const Stack = createNativeStackNavigator<NavigationStackParamList>();
 
@@ -15,7 +16,11 @@ const Navigation = () => (
   <NavigationContainer>
     <Stack.Navigator initialRouteName="Home" screenOptions={{ header: Header }}>
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Edit" component={Edit} />
+      <Stack.Screen
+        name="Edit"
+        component={Edit}
+        options={{ header: EditHeader }}
+      />
       <Stack.Screen
         name="New"
         component={New}
