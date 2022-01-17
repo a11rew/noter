@@ -16,6 +16,8 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     padding: '3%',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   heading: {
     fontFamily: 'DMSans-Bold',
