@@ -22,8 +22,12 @@ const NotesListCard: React.FC<Props> = ({ note }) => {
   return (
     <View style={styles.wrapper}>
       <TouchableOpacity style={styles.container} onPress={handlePress}>
-        <Text style={styles.title}>{note.title}</Text>
-        <Text style={styles.content}>{note.content}</Text>
+        <Text style={styles.title} ellipsizeMode="tail" numberOfLines={1}>
+          {note.title}
+        </Text>
+        <Text style={styles.content} ellipsizeMode="tail" numberOfLines={6}>
+          {note.content}
+        </Text>
       </TouchableOpacity>
     </View>
   );
