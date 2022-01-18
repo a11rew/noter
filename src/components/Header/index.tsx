@@ -10,16 +10,23 @@ import Colors from 'common/Colors';
 
 interface Props {
   withBack?: boolean;
+  onBack?: () => void;
 }
 
-const Header: React.FC<Props> = ({ withBack }) => {
+const Header: React.FC<Props> = ({ withBack, onBack }) => {
   const navigation = useNavigation();
   const theme = useColorScheme();
+
+  const handleBack = () => {
+    // Handle optional callback
+    if (onBack) onBack();
+    navigation.goBack();
+  };
 
   return (
     <View style={styles.container}>
       {withBack && (
-        <TouchableOpacity onPress={navigation.goBack} style={styles.back}>
+        <TouchableOpacity onPress={handleBack} style={styles.back}>
           <Icon
             name="arrowleft"
             size={normalize(24)}

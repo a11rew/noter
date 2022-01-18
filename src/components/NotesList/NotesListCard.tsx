@@ -27,7 +27,7 @@ const NotesListCard: React.FC<Props> = ({ note }) => {
           <Text style={styles.title} ellipsizeMode="tail" numberOfLines={1}>
             {note.title}
           </Text>
-          <Text style={styles.content} ellipsizeMode="tail" numberOfLines={6}>
+          <Text style={styles.content} ellipsizeMode="tail" numberOfLines={8}>
             {note.content}
           </Text>
         </TouchableOpacity>

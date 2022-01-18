@@ -21,7 +21,7 @@ const Edit: React.FC<Props> = ({ route }) => {
   const [noteContent, setNoteContent] = useState(note?.content || '');
   const [noteTitle, setNoteTitle] = useState(note?.title || '');
 
-  // Get keyboard state
+  // Get keyboard state for managing delete button visibility
   const isKeyboardOpen = useIsKeyboardOpen();
 
   // Persist content and title on change
@@ -35,7 +35,7 @@ const Edit: React.FC<Props> = ({ route }) => {
         title: noteTitle,
         id,
       });
-    }, 500),
+    }, 700),
     [noteContent, noteTitle],
   );
 

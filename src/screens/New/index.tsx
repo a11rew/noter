@@ -1,5 +1,6 @@
 import { useFocusEffect } from '@react-navigation/native';
 import { View, TextInput } from 'common/Themed';
+import Header from 'components/Header';
 import React, { useCallback, useState } from 'react';
 import {
   KeyboardAvoidingView,
@@ -16,7 +17,6 @@ const New: React.FC = () => {
 
   const handleLeave = () => {
     if (noteContent || noteTitle) {
-      console.log('Leaving');
       NoteStore.addNote({
         content: noteContent,
         title: noteTitle,
@@ -39,26 +39,29 @@ const New: React.FC = () => {
   );
 
   return (
-    <View style={styles.wrapper}>
-      <KeyboardAvoidingView style={styles.container}>
-        <ScrollView>
-          <TextInput
-            placeholder="Title"
-            style={styles.title}
-            value={noteTitle}
-            onChangeText={e => setNoteTitle(e)}
-          />
-          <TextInput
-            placeholder="Note"
-            multiline
-            scrollEnabled={false}
-            style={styles.note}
-            value={noteContent}
-            onChangeText={e => setNoteContent(e)}
-          />
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </View>
+    <>
+      <Header withBack onBack={handleLeave} />
+      <View style={styles.wrapper}>
+        <KeyboardAvoidingView style={styles.container}>
+          <ScrollView>
+            <TextInput
+              placeholder="Title"
+              style={styles.title}
+              value={noteTitle}
+              onChangeText={e => setNoteTitle(e)}
+            />
+            <TextInput
+              placeholder="Note"
+              multiline
+              scrollEnabled={false}
+              style={styles.note}
+              value={noteContent}
+              onChangeText={e => setNoteContent(e)}
+            />
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </View>
+    </>
   );
 };
 

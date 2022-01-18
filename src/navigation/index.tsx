@@ -24,7 +24,7 @@ const Navigation = () => (
       <Stack.Screen
         name="New"
         component={New}
-        options={{ header: () => <Header withBack /> }}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   </NavigationContainer>
