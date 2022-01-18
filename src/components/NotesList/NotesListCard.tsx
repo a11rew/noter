@@ -5,6 +5,7 @@ import Colors from 'common/Colors';
 import normalize from 'utils/normalize';
 import { useNavigation } from '@react-navigation/native';
 import { Note } from 'store/NoteStore';
+import { observer } from 'mobx-react-lite';
 
 interface Props {
   note: Note;
@@ -33,7 +34,7 @@ const NotesListCard: React.FC<Props> = ({ note }) => {
   );
 };
 
-export default NotesListCard;
+export default observer(NotesListCard);
 
 const styles = StyleSheet.create({
   wrapper: {

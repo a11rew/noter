@@ -60,7 +60,8 @@ const notesData = [
 
 class NoteStore {
   // Initialize array of notes.
-  public notes: Note[] = [];
+  private _notes: Note[] = [...notesData];
+  private _filter: string = '';
 
   constructor() {
     // Make store class properties MobX observables.
@@ -73,31 +74,55 @@ class NoteStore {
   // Create note and generate unique ID by incrementing length.
   addNote = (note: Omit<Note, 'id'>) => {
     // Append new note to notes array.
-    this.notes.push({
+    this._notes.push({
       title: note.title,
       content: note.content,
-      id: `${this.notes.length + 1}`,
+      id: `${this._notes.length + 1}`,
     });
   };
 
   // Remove note from notes with id
   removeNote = (id: string) => {
     // Remove note matching id
-    this.notes = this.notes.filter(note => note.id !== id);
+    this._notes = this._notes.filter(note => note.id !== id);
   };
 
   // Update note by id
   updateNote = (id: string, payload: Note) => {
     // Find note position in array
-    const index = this.notes.findIndex(note => note.id === id);
+    const index = this._notes.findIndex(note => note.id === id);
     // Update note at said position
-    this.notes[index] = payload;
+    this._notes[index] = payload;
   };
 
   // Find one note
   findNote = (id: string) => {
-    return this.notes.find(note => note.id === id);
+    return this._notes.find(note => note.id === id);
   };
+
+  get notes() {
+    // FIlter
+    let filtered = this._notes.filter(
+      note =>
+        note.title.match(new RegExp(this._filter, 'i')) ||
+        note.content.match(new RegExp(this._filter, 'i')),
+    );
+
+    // Sort
+    filtered = filtered.sort((a, b) => (Number(a.id) < Number(b.id) ? 1 : -1));
+
+    return filtered;
+  }
+
+  // Search string
+  get filter() {
+    return this._filter;
+  }
+
+  // Search filter string update
+  updateFilter(value: string) {
+    this._filter = value;
+  }
 }
 
 const persistNotes = (_this: any) => {
