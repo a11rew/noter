@@ -28,7 +28,7 @@ const DeleteActionButton: React.FC<Props> = ({ id }) => {
         }}
         style={styles.button}
         onPress={handlePress}>
-        <Icon name="trash" size={normalize(20)} color="black" />
+        <Icon name="trash" size={normalize(20)} color="white" />
       </Pressable>
     </View>
   );
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     right: 20,
     width: normalize(60),
     aspectRatio: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.accent,
     elevation: 15,
   },
   button: {

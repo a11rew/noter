@@ -1,7 +1,13 @@
 import React from 'react';
-import { Text as DefaultText, View as DefaultView } from 'react-native';
+import {
+  Text as DefaultText,
+  TextInput as DefaultTextInput,
+  View as DefaultView,
+} from 'react-native';
 import normalize from 'utils/normalize';
 import useThemeColor from 'hooks/useThemeColor';
+import useColorScheme from 'hooks/useColorScheme';
+import Colors from './Colors';
 
 type ThemeProps = {
   lightColor?: string;
@@ -10,6 +16,7 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
+export type TextInputProps = ThemeProps & DefaultTextInput['props'];
 
 export const Text = (props: TextProps): JSX.Element => {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -36,6 +43,29 @@ export const View = (props: ViewProps): JSX.Element => {
     { light: lightColor, dark: darkColor },
     'background',
   );
+  const borderColor = useThemeColor(
+    { light: lightColor, dark: darkColor },
+    'borderColor',
+  );
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return (
+    <DefaultView
+      style={[{ backgroundColor, borderColor }, style]}
+      {...otherProps}
+    />
+  );
+};
+
+export const TextInput = (props: TextInputProps): JSX.Element => {
+  const { style, ...otherProps } = props;
+  const theme = useColorScheme();
+  const textColor = Colors[theme]['text'];
+  const backgroundColor = Colors[theme]['background'];
+
+  return (
+    <DefaultTextInput
+      style={[{ color: textColor, backgroundColor }, style]}
+      {...otherProps}
+    />
+  );
 };

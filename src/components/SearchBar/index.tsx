@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
-import { View, Text } from 'common/Themed';
+import { StyleSheet } from 'react-native';
+import { View, TextInput } from 'common/Themed';
 import Colors from 'common/Colors';
 import normalize from 'utils/normalize';
 import { observer } from 'mobx-react-lite';
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   container: {
     height: normalize(48),
     borderWidth: 1,
-    borderColor: Colors.gray,
     borderRadius: normalize(12),
     paddingHorizontal: '3%',
   },

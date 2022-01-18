@@ -22,14 +22,16 @@ const NotesListCard: React.FC<Props> = ({ note }) => {
 
   return (
     <View style={styles.wrapper}>
-      <TouchableOpacity style={styles.container} onPress={handlePress}>
-        <Text style={styles.title} ellipsizeMode="tail" numberOfLines={1}>
-          {note.title}
-        </Text>
-        <Text style={styles.content} ellipsizeMode="tail" numberOfLines={6}>
-          {note.content}
-        </Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={handlePress}>
+          <Text style={styles.title} ellipsizeMode="tail" numberOfLines={1}>
+            {note.title}
+          </Text>
+          <Text style={styles.content} ellipsizeMode="tail" numberOfLines={6}>
+            {note.content}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -43,7 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 0,
     borderWidth: 1,
-    borderColor: Colors.gray,
     borderRadius: normalize(12),
     padding: normalize(8),
   },

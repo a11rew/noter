@@ -18,7 +18,7 @@ const FloatingActionButton = () => {
         }}
         style={styles.button}
         onPress={() => navigation.navigate('New')}>
-        <Icon name="plus" size={normalize(28)} />
+        <Icon name="plus" color={'white'} size={normalize(28)} />
       </Pressable>
     </View>
   );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     right: 20,
     width: normalize(60),
     aspectRatio: 1,
-    backgroundColor: 'white',
+    backgroundColor: Colors.accent,
     elevation: 15,
   },
   button: {

@@ -1,10 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
-  TextInput,
-} from 'react-native';
+import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
+import { TextInput } from 'common/Themed';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { View } from 'common/Themed';
@@ -72,7 +68,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: '2%',
-    backgroundColor: 'white',
     flexDirection: 'column',
     justifyContent: 'center',
   },
