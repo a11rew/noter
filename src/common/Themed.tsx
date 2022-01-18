@@ -1,8 +1,13 @@
+/**
+ * Themed components based on device theme
+ */
+
 import React from 'react';
 import {
   Text as DefaultText,
   TextInput as DefaultTextInput,
   View as DefaultView,
+  SafeAreaView as DefaultSafeAreaView,
 } from 'react-native';
 import normalize from 'utils/normalize';
 import useThemeColor from 'hooks/useThemeColor';
@@ -17,6 +22,7 @@ type ThemeProps = {
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
 export type TextInputProps = ThemeProps & DefaultTextInput['props'];
+export type SafeAreaViewProps = ThemeProps & DefaultSafeAreaView['props'];
 
 export const Text = (props: TextProps): JSX.Element => {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -67,5 +73,15 @@ export const TextInput = (props: TextInputProps): JSX.Element => {
       style={[{ color: textColor, backgroundColor }, style]}
       {...otherProps}
     />
+  );
+};
+
+export const SafeAreaView = (props: SafeAreaViewProps): JSX.Element => {
+  const { style, ...otherProps } = props;
+  const theme = useColorScheme();
+  const backgroundColor = Colors[theme]['background'];
+
+  return (
+    <DefaultSafeAreaView style={[{ backgroundColor }, style]} {...otherProps} />
   );
 };

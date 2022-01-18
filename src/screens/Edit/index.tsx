@@ -6,9 +6,8 @@ import { useDebouncedCallback } from 'use-debounce';
 import { View } from 'common/Themed';
 import normalize from 'utils/normalize';
 import NoteStore from 'store/NoteStore';
-
-import { NavigationStackScreenProps } from '../../navigation/types';
 import DeleteActionButton from 'components/FloatingActionButton/DeleteActionButton';
+import { NavigationStackScreenProps } from '../../navigation/types';
 
 interface Props extends NavigationStackScreenProps<'Edit'> {}
 

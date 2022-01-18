@@ -60,7 +60,7 @@ const notesData = [
 
 class NoteStore {
   // Initialize array of notes.
-  private _notes: Note[] = [...notesData];
+  private _notes: Note[] = [];
   private _filter: string = '';
 
   constructor() {
