@@ -24,7 +24,7 @@ export default observer(SearchBar);
 const styles = StyleSheet.create({
   container: {
     height: normalize(48),
-    borderWidth: 1,
+    borderWidth: 1.3,
     borderRadius: normalize(12),
     paddingHorizontal: '3%',
   },

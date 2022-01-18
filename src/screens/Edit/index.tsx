@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
-import { TextInput } from 'common/Themed';
+import { KeyboardAvoidingView, StyleSheet } from 'react-native';
+import InputScrollView from 'react-native-input-scroll-view';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { View } from 'common/Themed';
+import { View, TextInput } from 'common/Themed';
 import normalize from 'utils/normalize';
 import NoteStore from 'store/NoteStore';
 import DeleteActionButton from 'components/FloatingActionButton/DeleteActionButton';
-import { NavigationStackScreenProps } from '../../navigation/types';
 import useIsKeyboardOpen from 'hooks/useIsKeyboardOpen';
+import { NavigationStackScreenProps } from '../../navigation/types';
 
 interface Props extends NavigationStackScreenProps<'Edit'> {}
 
@@ -42,7 +42,7 @@ const Edit: React.FC<Props> = ({ route }) => {
   return (
     <View style={styles.wrapper}>
       <KeyboardAvoidingView style={styles.container}>
-        <ScrollView>
+        <InputScrollView>
           <TextInput
             placeholder="Title"
             style={styles.title}
@@ -57,7 +57,7 @@ const Edit: React.FC<Props> = ({ route }) => {
             value={noteContent}
             onChangeText={e => setNoteContent(e)}
           />
-        </ScrollView>
+        </InputScrollView>
       </KeyboardAvoidingView>
 
       {
@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(16),
     height: '100%',
     textAlignVertical: 'top',
-    paddingBottom: '25%',
+    paddingBottom: '20%',
   },
 });

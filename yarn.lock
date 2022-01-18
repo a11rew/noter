@@ -5919,6 +5919,13 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-input-scroll-view@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-input-scroll-view/-/react-native-input-scroll-view-1.11.0.tgz#05ca068c4093c7c92a6412c0a05a9d76166976ad"
+  integrity sha512-KCIR3D8uug7Mef2vsjVkVnVr3DvPrSXRPz+C/DNHawXqA4WjmzqABrXjbZOGp+JwSHFD6U2ZVX9GfLgAOs1/7g==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-safe-area-context@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.3.2.tgz#9549a2ce580f2374edb05e49d661258d1b8bcaed"
