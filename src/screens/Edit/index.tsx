@@ -8,14 +8,21 @@ import normalize from 'utils/normalize';
 import NoteStore from 'store/NoteStore';
 import DeleteActionButton from 'components/FloatingActionButton/DeleteActionButton';
 import { NavigationStackScreenProps } from '../../navigation/types';
+import useIsKeyboardOpen from 'hooks/useIsKeyboardOpen';
 
 interface Props extends NavigationStackScreenProps<'Edit'> {}
 
 const Edit: React.FC<Props> = ({ route }) => {
-  const id = route.params.id;
+  // Get note details
+  const { id } = route.params;
   const note = useMemo(() => NoteStore.findNote(id), [id]);
+
+  // Control inputs
   const [noteContent, setNoteContent] = useState(note?.content || '');
   const [noteTitle, setNoteTitle] = useState(note?.title || '');
+
+  // Get keyboard state
+  const isKeyboardOpen = useIsKeyboardOpen();
 
   // Persist content and title on change
   useEffect(
@@ -52,7 +59,11 @@ const Edit: React.FC<Props> = ({ route }) => {
           />
         </ScrollView>
       </KeyboardAvoidingView>
-      <DeleteActionButton id={note!.id} />
+
+      {
+        // Hide delete button when editing
+        !isKeyboardOpen && <DeleteActionButton id={note!.id} />
+      }
     </View>
   );
 };
@@ -79,5 +90,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(16),
     height: '100%',
     textAlignVertical: 'top',
+    paddingBottom: '25%',
   },
 });

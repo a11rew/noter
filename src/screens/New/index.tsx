@@ -16,6 +16,7 @@ const New: React.FC = () => {
 
   const handleLeave = () => {
     if (noteContent || noteTitle) {
+      console.log('Leaving');
       NoteStore.addNote({
         content: noteContent,
         title: noteTitle,
