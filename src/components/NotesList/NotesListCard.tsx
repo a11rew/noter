@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Text, View } from 'common/Themed';
-import Colors from 'common/Colors';
-import normalize from 'utils/normalize';
 import { useNavigation } from '@react-navigation/native';
-import { Note } from 'store/NoteStore';
 import { observer } from 'mobx-react-lite';
+
+import { Text, View } from 'common/Themed';
+import normalize from 'utils/normalize';
+import { Note } from 'store/NoteStore';
 
 interface Props {
   note: Note;
