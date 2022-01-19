@@ -3,7 +3,7 @@ import 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import New from '.';
 import store from 'store/NoteStore';
-import MockedNavigator from '../../../__mocks__/MockedNavigator';
+import MockedNavigator from 'mocks/MockedNavigator';
 
 const mockedNavigate = jest.fn();
 

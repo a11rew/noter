@@ -30,6 +30,7 @@ module.exports = {
         ['components', './src/components'],
         ['common'],
         ['hooks', './src/hooks'],
+        ['mocks', './src/mocks'],
         ['navigation', './src/navigation'],
         ['screens', './src/screens'],
         ['store', './src/store'],

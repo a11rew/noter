@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-native';
 import { render } from '@testing-library/react-native';
-import mockNotes from '../../../__mocks__/sampleNotes';
+
+import mockNotes from 'mocks/sampleNotes';
 import NoteStore from 'store/NoteStore';
 import NotesList from '.';
 import NotesListCard from './NotesListCard';

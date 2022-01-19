@@ -1,9 +1,10 @@
 import React from 'react';
 import 'react-native';
 import { render, fireEvent } from '@testing-library/react-native';
+
 import Edit from '.';
 import mockStore from 'store/NoteStore';
-import MockedNavigator from '../../../__mocks__/MockedNavigator';
+import MockedNavigator from 'mocks/MockedNavigator';
 
 // Store mock
 jest.mock('store/NoteStore', () => {

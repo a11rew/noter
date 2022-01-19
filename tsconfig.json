@@ -15,7 +15,8 @@
       "common/*": ["common/*"],
       "components/*": ["components/*"],
       "hooks/*": ["hooks/*"],
-      "navigation/*": ["src/navigation/*"],
+      "mocks/*": ["mocks/*"],
+      "navigation/*": ["navigation/*"],
       "screens/*": ["screens/*"],
       "store/*": ["store/*"],
       "utils/*": ["utils/*"]
