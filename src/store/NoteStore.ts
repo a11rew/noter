@@ -11,6 +11,7 @@ class NoteStore {
   // Initialize array of notes.
   private _notes: Note[] = [];
   private _filter: string = '';
+  private _uuid: number = 1;
 
   constructor() {
     // Make store class properties MobX observables.
@@ -27,7 +28,7 @@ class NoteStore {
     this._notes.push({
       title: note.title,
       content: note.content,
-      id: `${this._notes.length + 1}`,
+      id: `${(this._uuid += 1)}`,
     });
     persistNotes(this);
   };

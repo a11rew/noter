@@ -18,7 +18,7 @@ const NotesListCard: React.FC<Props> = ({ note }) => {
     navigation.navigate('Edit', {
       id: note.id,
     });
-  }, [note.id]);
+  }, [note.id, navigation]);
 
   return (
     <View style={styles.wrapper}>

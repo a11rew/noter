@@ -12,6 +12,8 @@ const NotesList = (): JSX.Element => {
   // Sliced to deal with Flatlist "out of bounds read"
   const data = NotesStore.notes.slice();
 
+  console.log('notes', data);
+
   return (
     <>
       {data.length > 0 ? (
