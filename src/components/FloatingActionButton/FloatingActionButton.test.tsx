@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native';
-import renderer from 'react-test-renderer';
-import NewNoteActionButton from '.';
+import { fireEvent, render } from '@testing-library/react-native';
+import FloatingActionButton from '.';
 
 const mockedNavigate = jest.fn();
 
@@ -15,8 +15,15 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-describe('NewNoteActionButton Test Suite', () => {
+describe('FloatingActionButton Test Suite', () => {
   it('renders correctly', () => {
-    renderer.create(<NewNoteActionButton />);
+    render(<FloatingActionButton />);
+  });
+
+  it('navigates to new note screen on press', () => {
+    const { getByTestId } = render(<FloatingActionButton />);
+    const button = getByTestId('test-pressable');
+    fireEvent.press(button);
+    expect(mockedNavigate).toHaveBeenCalled();
   });
 });

@@ -13,6 +13,7 @@ const FloatingActionButton = () => {
   return (
     <View style={styles.container}>
       <Pressable
+        testID="test-pressable"
         android_ripple={{
           color: Colors.gray,
         }}
