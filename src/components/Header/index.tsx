@@ -26,7 +26,10 @@ const Header: React.FC<Props> = ({ withBack, onBack }) => {
   return (
     <View style={styles.container}>
       {withBack && (
-        <TouchableOpacity onPress={handleBack} style={styles.back}>
+        <TouchableOpacity
+          testID="back-button"
+          onPress={handleBack}
+          style={styles.back}>
           <Icon
             name="arrowleft"
             size={normalize(24)}

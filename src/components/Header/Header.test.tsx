@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-native';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 import Header from '.';
 
 const mockedNavigate = jest.fn();
@@ -10,7 +10,7 @@ jest.mock('@react-navigation/native', () => {
   return {
     ...actualNav,
     useNavigation: () => ({
-      navigate: mockedNavigate,
+      goBack: mockedNavigate,
     }),
   };
 });
@@ -18,5 +18,12 @@ jest.mock('@react-navigation/native', () => {
 describe('Header Test Suite', () => {
   it('renders correctly', () => {
     render(<Header />);
+  });
+
+  it('navigates to new note screen on press', () => {
+    const { getByTestId } = render(<Header withBack />);
+    const button = getByTestId('back-button');
+    fireEvent.press(button);
+    expect(mockedNavigate).toHaveBeenCalled();
   });
 });
