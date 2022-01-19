@@ -12,7 +12,7 @@ module.exports = {
         'no-undef': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         'react/jsx-props-no-spreading': 'off',
-        // 'react-hooks/exhaustive-deps': 'off',
+        'react-hooks/exhaustive-deps': 'off',
         'react/function-component-definition': [
           1,
           {
@@ -28,14 +28,10 @@ module.exports = {
       alias: [
         ['assets', './src/assets'],
         ['components', './src/components'],
-        ['Themed', './src/components/Themed.tsx'],
-        ['constants', './src/constants'],
         ['common'],
-        ['data', './src/data'],
         ['hooks', './src/hooks'],
         ['navigation', './src/navigation'],
         ['screens', './src/screens'],
-        ['services', './src/services'],
         ['store', './src/store'],
         ['utils', './src/utils'],
       ],

@@ -12,15 +12,11 @@
     "baseUrl": "./src/",
     "paths": {
       "assets/*": ["assets/*"],
-      "components/*": ["components/*"],
-      "Themed": ["components/Themed.tsx"],
-      "constants/*": ["constants/*"],
       "common/*": ["common/*"],
-      "data/*": ["data/*"],
+      "components/*": ["components/*"],
       "hooks/*": ["hooks/*"],
       "navigation/*": ["src/navigation/*"],
       "screens/*": ["screens/*"],
-      "services/*": ["services/*"],
       "store/*": ["store/*"],
       "utils/*": ["utils/*"]
     },
