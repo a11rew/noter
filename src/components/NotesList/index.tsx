@@ -14,7 +14,7 @@ const NotesList = (): JSX.Element => {
 
   return (
     <>
-      {data.length > 1 ? (
+      {data.length > 0 ? (
         <List
           style={styles.container}
           numColumns={2}

@@ -15,15 +15,16 @@ const New: React.FC = () => {
   const [noteContent, setNoteContent] = useState('');
   const [noteTitle, setNoteTitle] = useState('');
 
-  const handleLeave = () => {
+  const handleLeave = useCallback(() => {
     if (noteContent || noteTitle) {
       NoteStore.addNote({
         content: noteContent,
         title: noteTitle,
       });
     }
+
     return false;
-  };
+  }, [noteContent, noteTitle]);
 
   // Use navigation lifecycle to handle registration
   useFocusEffect(
@@ -35,7 +36,7 @@ const New: React.FC = () => {
       );
 
       return () => backHandler.remove();
-    }, [noteContent, noteTitle]),
+    }, [handleLeave]),
   );
 
   return (

@@ -4,6 +4,7 @@ import { View } from 'common/Themed';
 import SearchBar from 'components/SearchBar';
 import NotesList from 'components/NotesList';
 import FloatingActionButton from 'components/FloatingActionButton';
+import { observer } from 'mobx-react-lite';
 
 const Home = (): JSX.Element => {
   return (
@@ -23,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default observer(Home);

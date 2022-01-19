@@ -12,7 +12,7 @@ module.exports = {
         'no-undef': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         'react/jsx-props-no-spreading': 'off',
-        'react-hooks/exhaustive-deps': 'off',
+        // 'react-hooks/exhaustive-deps': 'off',
         'react/function-component-definition': [
           1,
           {

@@ -18,7 +18,7 @@ const DeleteActionButton: React.FC<Props> = ({ id }) => {
   const handlePress = useCallback(() => {
     NoteStore.removeNote(id);
     navigation.navigate('Home');
-  }, [id]);
+  }, [id, navigation]);
 
   return (
     <View style={styles.container}>
