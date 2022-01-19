@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { View, TextInput } from 'common/Themed';
-import Colors from 'common/Colors';
 import normalize from 'utils/normalize';
 import { observer } from 'mobx-react-lite';
 import NoteStore from 'store/NoteStore';

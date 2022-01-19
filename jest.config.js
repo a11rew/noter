@@ -14,4 +14,5 @@ module.exports = {
       '<rootDir>/__mocks__/assetsTransformer.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/assetsTransformer.js',
   },
+  resetMocks: true,
 };
