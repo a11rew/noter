@@ -19,7 +19,9 @@ const Header: React.FC<Props> = ({ withBack, onBack }) => {
 
   const handleBack = () => {
     // Handle optional callback
-    if (onBack) onBack();
+    if (onBack) {
+      onBack();
+    }
     navigation.goBack();
   };
 

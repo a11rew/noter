@@ -21,7 +21,7 @@ describe('NotesList Test Suite', () => {
 
   it('displays call to action when notes < 1', () => {
     const { getByText } = render(<NotesList />);
-    expect(getByText("You don't have any notes."));
+    expect(getByText("You don't have any notes.")).toBeTruthy();
   });
 
   it('displays notes when in store', () => {
@@ -30,7 +30,7 @@ describe('NotesList Test Suite', () => {
 
     const { getAllByText } = render(<NotesList />);
     // Check that mock data is rendered
-    expect(getAllByText(`${mockStore.notes[0].content}`));
+    expect(getAllByText(`${mockStore.notes[0].content}`)).toBeTruthy();
   });
 });
 
@@ -41,11 +41,11 @@ describe('NotesListCard Test Suite', () => {
 
   it('displays title correctly', () => {
     const { getByText } = render(<NotesListCard note={mockNotes[0]} />);
-    expect(getByText(mockNotes[0].title));
+    expect(getByText(mockNotes[0].title)).toBeTruthy();
   });
 
   it('displays preview content correctly', () => {
     const { getByText } = render(<NotesListCard note={mockNotes[0]} />);
-    expect(getByText(mockNotes[0].content));
+    expect(getByText(mockNotes[0].content)).toBeTruthy();
   });
 });

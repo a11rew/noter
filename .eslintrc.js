@@ -1,8 +1,8 @@
 module.exports = {
   root: true,
-  extends: ['@react-native-community', 'airbnb-typescript-prettier'],
+  extends: ['@react-native-community'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'plugin:import/typescript'],
+  plugins: ['@typescript-eslint'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -12,6 +12,7 @@ module.exports = {
         'no-undef': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         'react/jsx-props-no-spreading': 'off',
+        'react-hooks/exhaustive-deps': 'off',
         'react/function-component-definition': [
           1,
           {

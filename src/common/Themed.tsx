@@ -65,8 +65,8 @@ export const View = (props: ViewProps): JSX.Element => {
 export const TextInput = (props: TextInputProps): JSX.Element => {
   const { style, ...otherProps } = props;
   const theme = useColorScheme();
-  const textColor = Colors[theme]['text'];
-  const backgroundColor = Colors[theme]['background'];
+  const textColor = Colors[theme].text;
+  const backgroundColor = Colors[theme].background;
 
   return (
     <DefaultTextInput
@@ -79,7 +79,7 @@ export const TextInput = (props: TextInputProps): JSX.Element => {
 export const SafeAreaView = (props: SafeAreaViewProps): JSX.Element => {
   const { style, ...otherProps } = props;
   const theme = useColorScheme();
-  const backgroundColor = Colors[theme]['background'];
+  const backgroundColor = Colors[theme].background;
 
   return (
     <DefaultSafeAreaView style={[{ backgroundColor }, style]} {...otherProps} />

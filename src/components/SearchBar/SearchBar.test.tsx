@@ -1,10 +1,9 @@
 import React from 'react';
 import 'react-native';
 import { render, fireEvent } from '@testing-library/react-native';
+
 import SearchBar from '.';
 import NoteStore from 'store/NoteStore';
-import mockNotes from '../../../__mocks__/sampleNotes';
-import App from '../../../App';
 
 jest.mock('store/NoteStore', () => {
   return {
