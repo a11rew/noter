@@ -1,14 +1,13 @@
 # 📝 Noter
+Android and iOS application for taking notes.
 
 ## Description
-
-Android and iOS application for taking notes.
 
 Users can create new notes, see all existing notes, open any note to view details as well as edit it, notes can be deleted and notes are automatically saved and persisted on change.
 
 Built with React Native and unit tested with [Jest](https://jestjs.io) and [React Native Testing Library](https://callstack.github.io/react-native-testing-library/). Application-wide state is managed with [MobX](https://mobx.js.org) and locally persisted with the key-value store library [AsyncStorage](https://react-native-async-storage.github.io/async-storage/).
 
-Application navigation is handled with [React Navigation](https://reactnavigation.org/) and vector icons provided by the NPM package, [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons.
+Application navigation is handled with [React Navigation](https://reactnavigation.org/) and vector icons provided by the NPM package, [react-native-vector-icons](https://www.npmjs.com/package/react-native-vector-icons).
 
 ## Installation
 
@@ -77,3 +76,7 @@ Description of folders in the project directory
 - `src/utils`: General helper functions.
 
 ## Screenshots
+![Screenshot from 2022-01-19 19-27-55](https://user-images.githubusercontent.com/87580113/150241023-4a25e58d-ceb5-4974-abc9-f67f76c2ec95.png)
+![Screenshot from 2022-01-19 19-53-28](https://user-images.githubusercontent.com/87580113/150241186-a3867820-dd66-4c5c-b89c-d65641616ec8.png)
+![Screenshot from 2022-01-19 19-53-06](https://user-images.githubusercontent.com/87580113/150241206-dbf370f5-4b43-4eed-afb0-b93756e48703.png)
+![Screenshot from 2022-01-19 19-50-03](https://user-images.githubusercontent.com/87580113/150241274-c33e0db3-34ed-4d06-b43e-20460a1bc515.png)
