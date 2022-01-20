@@ -24,7 +24,6 @@ const Navigation = () => (
       <Stack.Screen
         name="New"
         component={New}
-        {/*  Hide native header since New manages its own header */}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
