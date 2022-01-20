@@ -1,4 +1,5 @@
 # 📝 Noter
+
 Android and iOS application for taking notes.
 
 ## Description
@@ -56,9 +57,9 @@ Edits to notes are automatically saved and persisted. Updates to the persisted s
 
 ### Testing
 
-Components and screens in the application are unit tested with a variety of different test cases with the goal of ensuring high test coverage. Native modules as well as some external JavaScript dependencies are mocked, with said mocks in the `src/mocks` directory.
+Components, screens and custom hooks in the application are unit tested with a variety of different test cases with the goal of ensuring high test coverage. Native modules as well as some external JavaScript dependencies are mocked, with said mocks in the `src/mocks` directory.
 
-Test Suites for each component and screen are located in their respective component directories with a `.test.(js|ts(x?))` extension.
+Test suites for each component, hook and screen are located in their respective directories with a `.test.(js|ts(x?))` extension.
 
 Tests are [continuously run on pushes](https://github.com/a11rew/noter/actions/workflows/tests.yml) to the Noter repository with a CI Action to check for regressions.
 

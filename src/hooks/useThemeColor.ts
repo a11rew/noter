@@ -1,3 +1,6 @@
+/**
+ * Custom hook to return appropriate colors for themes
+ */
 import useColorScheme from './useColorScheme';
 import Colors from 'common/Colors';
 
