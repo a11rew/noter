@@ -76,7 +76,23 @@ Description of folders in the project directory
 - `src/utils`: General helper functions.
 
 ## Screenshots
-![Screenshot from 2022-01-19 19-27-55](https://user-images.githubusercontent.com/87580113/150241023-4a25e58d-ceb5-4974-abc9-f67f76c2ec95.png)
-![Screenshot from 2022-01-19 19-53-28](https://user-images.githubusercontent.com/87580113/150241186-a3867820-dd66-4c5c-b89c-d65641616ec8.png)
-![Screenshot from 2022-01-19 19-53-06](https://user-images.githubusercontent.com/87580113/150241206-dbf370f5-4b43-4eed-afb0-b93756e48703.png)
-![Screenshot from 2022-01-19 19-50-03](https://user-images.githubusercontent.com/87580113/150241274-c33e0db3-34ed-4d06-b43e-20460a1bc515.png)
+
+<table>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/87580113/150241023-4a25e58d-ceb5-4974-abc9-f67f76c2ec95.png" />
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/87580113/150241186-a3867820-dd66-4c5c-b89c-d65641616ec8.png" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/87580113/150241206-dbf370f5-4b43-4eed-afb0-b93756e48703.png" />
+    </td>
+    <td>
+      <img src="https://user-images.githubusercontent.com/87580113/150241274-c33e0db3-34ed-4d06-b43e-20460a1bc515.png" />
+    </td>
+  </tr>
+  
+</table>
