@@ -12,6 +12,10 @@ Application navigation is handled with [React Navigation](https://reactnavigatio
 
 ## Installation
 
+Try Noter out on Android by installing the prebuilt APK available on the [releases page](https://github.com/a11rew/noter/releases).
+
+## Development
+
 Setup a [React Native development environment](https://reactnative.dev/docs/environment-setup) if you have not already.
 
 ### Running on Android
@@ -51,7 +55,7 @@ Noter is setup as a Typescript React Native project. Code style and quality are 
 
 Tests are run with Jest as the general test framework and React Native Testing library for React Native specific test utility functions.
 
-MobX is used for managing application state. When users create notes they are saved to the MobX store, serialized and persisted to device storage with AsyncStorage. On launch, these persisted notes are retrieved from device storage, deserialized and added to the MobX store for use in the application.
+MobX is used for managing application state. When users create notes, they are saved to the MobX store, serialized and persisted to device storage with AsyncStorage. On launch, these persisted notes are retrieved from device storage, deserialized and added to the MobX store for use in the application.
 
 Edits to notes are automatically saved and persisted. Updates to the persisted store from note edits are batched by way of a debounce to minimize disk operations and prevent performance bottlenecks.
 
