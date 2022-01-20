@@ -1,4 +1,4 @@
-package com.noter;
+package com.andrewglago.noter;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 
