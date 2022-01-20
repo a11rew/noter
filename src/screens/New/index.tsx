@@ -16,6 +16,7 @@ const New: React.FC = () => {
   const [noteTitle, setNoteTitle] = useState('');
 
   const handleLeave = useCallback(() => {
+    // Add note if a title or content has been provided
     if (noteContent || noteTitle) {
       NoteStore.addNote({
         content: noteContent,
@@ -35,6 +36,7 @@ const New: React.FC = () => {
         handleLeave,
       );
 
+      // Unsubscribe from back handler listener
       return () => backHandler.remove();
     }, [handleLeave]),
   );

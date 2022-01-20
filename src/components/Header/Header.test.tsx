@@ -3,8 +3,8 @@ import 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
 import Header from '.';
 
+// Mock navigate function to assert calling
 const mockedNavigate = jest.fn();
-
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
   return {

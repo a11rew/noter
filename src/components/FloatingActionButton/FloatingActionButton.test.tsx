@@ -1,10 +1,11 @@
 import React from 'react';
 import 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
+
 import FloatingActionButton from '.';
 
+// Mock navigate function to assert calling
 const mockedNavigate = jest.fn();
-
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
   return {
@@ -16,7 +17,7 @@ jest.mock('@react-navigation/native', () => {
 });
 
 describe('FloatingActionButton Test Suite', () => {
-  it('renders correctly', () => {
+  it('renders without crashing', () => {
     render(<FloatingActionButton />);
   });
 

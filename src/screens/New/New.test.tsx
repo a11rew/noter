@@ -5,8 +5,8 @@ import New from '.';
 import store from 'store/NoteStore';
 import MockedNavigator from 'mocks/MockedNavigator';
 
+// Mock navigate function to assert calling
 const mockedNavigate = jest.fn();
-
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
   return {

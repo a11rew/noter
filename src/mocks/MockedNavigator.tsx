@@ -1,3 +1,8 @@
+/**
+ * Returns a container element with react-navigation
+ * required props for use in tests
+ */
+
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,13 +29,3 @@ const MockedNavigator = ({ component, params }: Props) => {
 };
 
 export default MockedNavigator;
-
-// <NavigationContainer>
-// <Stack.Navigator>
-//   <Stack.Screen
-//     name="MockedScreen"
-//     component={component}
-//     initialParams={params}
-//   />
-// </Stack.Navigator>
-// </NavigationContainer>

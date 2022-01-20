@@ -5,6 +5,7 @@ import { render, fireEvent } from '@testing-library/react-native';
 import SearchBar from '.';
 import NoteStore from 'store/NoteStore';
 
+// Mock update filter to assert search box dispatches updates to store
 jest.mock('store/NoteStore', () => {
   return {
     updateFilter: jest.fn(),

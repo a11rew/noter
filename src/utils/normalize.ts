@@ -2,11 +2,13 @@
  * Returns responsive sizing values based on pixel density
  */
 
-import {Dimensions, PixelRatio} from 'react-native';
+import { Dimensions, PixelRatio } from 'react-native';
 
-export const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} =
+// Current screen dimensions
+export const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } =
   Dimensions.get('window');
 
+// Pixel 4 XL scale
 const wscale: number = SCREEN_WIDTH / 414;
 const hscale: number = SCREEN_HEIGHT / 896;
 
