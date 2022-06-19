@@ -57,7 +57,7 @@ Tests are run with Jest as the general test framework and React Native Testing l
 
 MobX is used for managing application state. When users create notes, they are saved to the MobX store, serialized and persisted to device storage with AsyncStorage. On launch, these persisted notes are retrieved from device storage, deserialized and added to the MobX store for use in the application.
 
-Edits to notes are automatically saved and persisted. Updates to the persisted store from note edits are batched by way of a debounce to minimize disk operations and prevent performance bottlenecks.
+Edits to notes are automatically saved and persisted. Updates to the persisted store from note edits are batched by way of a debounce to minimize disk operations and prevent performance bottlenecking.
 
 ### Testing
 
